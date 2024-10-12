@@ -19,27 +19,13 @@ This project provides a RESTful API for managing customers and their accounts. I
 
 ## Setup and Installation
 
-### Prerequisites
-Make sure you have Docker installed on your system.
 
 ### Step 1: Clone the Repository
 First, clone the repository and navigate into the project directory:
 
 ### Step 2: Creat a .env file
 cd .env.example.env
-update the .env with your environment configuration 
-
-APP_NAME=CustomerAPI
-APP_ENV=local
-APP_KEY=base64:your-app-key
-APP_DEBUG=true
-APP_URL=http://localhost
-DB_CONNECTION=mysql
-DB_HOST=db
-DB_PORT=3306
-DB_DATABASE=customer_apis
-DB_USERNAME=DB_USERNAME
-DB_PASSWORD=DB_PASSWORD
+update the .env with your environment configuration, database and application keys.
 
 
 ### Step 3 : Build and Start the containers:
