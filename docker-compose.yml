@@ -1,0 +1,39 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: customersApis_app
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - APP_KEY=${APP_KEY}
+    depends_on:
+      - db
+    networks:
+      - customers_network
+
+  db:
+    image: mysql:5.7
+    container_name: customersApis_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: customer_apis
+      MYSQL_ROOT_PASSWORD: root  # Only set the root password
+    volumes:
+      - dbdata:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - customers_network
+
+volumes:
+  dbdata:
+
+networks:
+  customers_network:
+    driver: bridge
